@@ -1,0 +1,20 @@
+.navigation_mobile, .navigation_mobile > * {
+  body.has_mobile_platform .widget_horizontal_navigation_bar_present & {
+    display: block;
+  }
+
+  body.has_no_mobile_platform .widget_horizontal_navigation_bar_present & {
+    display: none;
+  }
+}
+.js .widget_horizontal_navigation_bar_present .page .close_button {
+  @include desktop {
+    right: 10%;
+  }
+}
+
+.js .widget_horizontal_navigation_bar_present .videoWrapper {
+  @include desktop {
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,54 @@
+<%= content_tag(:div,
+                class: 'horizontal_navigation_bar',
+                data: {widget: 'horizontal_navigation_bar'}) do %>
+
+  <div class="bar">
+    <a href="#" class="parent_page button" title="Zurück"></a>
+
+    <div class="scroller">
+      <ul class="pages">
+        <div class="scroller_first"></div>
+        <%= render(partial: 'pageflow/horizontal_navigation_bar/page',
+                   collection: entry.pages.displayed_in_navigation) %>
+        <div class="scroller_last"></div>
+      </ul>
+    </div>
+
+    <a href="#" class="menu_toggle button"></a>
+  </div>
+
+  <div class="menu_box">
+    <h1>#wowillstduhin</h1>
+
+    <div class="button_area">
+      <a class="navigation_top" href="#">
+        <p>Von vorne starten</p>
+      </a>
+      <div class="share_box">
+        <%= render 'pageflow/entries/share_menu/facebook_link', entry: entry %>
+        <%= render 'pageflow/entries/share_menu/twitter_link', entry: entry %>
+        <%= render 'pageflow/entries/share_menu/google_link', entry: entry %>
+      </div>
+    </div>
+
+    <div class="imprint_box">
+      <% if entry.credits %>
+        <p><%= raw entry.credits %></p>
+      <% end -%>
+      <%= entry_file_rights(entry) %>
+      <%= entry_global_links(entry) %>
+    </div>
+
+    <div class="volume">
+      <div class="volume-control">
+        <div tabindex="0" class="player_volume_bar player_slider volume-slider">
+          <div class="player_volume_level volume-level"></div>
+          <div class="player_volume_handle player_slider_handle volume-handle"></div>
+        </div>
+      </div>
+      <div class="player_mute volume-mute-button"></div>
+    </div>
+
+    <div class="fullscreen"></div>
+  </div>
+<% end %>
