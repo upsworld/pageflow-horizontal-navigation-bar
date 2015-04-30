@@ -32,6 +32,16 @@
 
       this.element.find('.parent_page').parentPageButton();
 
+      /* close by clicking background */
+
+      menuBox.on('click', function(event) {
+        menuBox.removeClass('active');
+      });
+
+      menuBox.find('a, .fullscreen, .volume').on('click', function(event) {
+        event.stopPropagation();
+      });
+
       /* pages */
 
       that.element.on('click', 'ul a', function(e) {
