@@ -12,11 +12,8 @@
 
   ul.pages a {
     display: inline-block;
-    background-color: #000;
-    margin: 2px;
 
     &.active {
-      border: solid 1px #fff;
     }
 
     &.filtered {
