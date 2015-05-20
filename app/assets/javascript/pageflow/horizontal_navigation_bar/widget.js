@@ -32,6 +32,13 @@
 
       this.element.find('.fullscreen').fullscreenButton();
       this.element.find('.parent_page').parentPageButton();
+      this.element.find('.navigation_top').topButton();
+
+      this.element.find('.navigation_top').on('click', function() {
+        if (!$(this).hasClass('deactivated')) {
+          menuBox.removeClass('active');
+        }
+      });
 
       /* close by clicking background */
 
