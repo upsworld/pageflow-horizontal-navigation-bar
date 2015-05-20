@@ -30,6 +30,7 @@
         orientation: 'v'
       });
 
+      this.element.find('.fullscreen').fullscreenButton();
       this.element.find('.parent_page').parentPageButton();
 
       /* close by clicking background */
