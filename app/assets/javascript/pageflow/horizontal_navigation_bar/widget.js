@@ -31,22 +31,28 @@
         }
       });
 
-      element.find('.volume').volumeSlider({
+      element.find('.volume-control').volumeSlider({
         orientation: 'v'
       });
+      element.find('.player_mute').muteButton();
 
       element.find('.fullscreen').fullscreenButton();
       element.find('.parent_page').parentPageButton();
       element.find('.navigation_top').topButton();
 
-      /* close by clicking background */
+      $('.menu_box_scroller', this.element).each(function () {
+        var scrollerOptions = {
+          mouseWheel: true,
+          bounce    : false,
+          probeType : 2,
+          scrollY   : false,
+          scrollX    : true
+        };
 
-      menuBox.on('click', function(event) {
-        element.removeClass('menu_box_active');
-      });
-
-      menuBox.find('a, .fullscreen, .volume').on('click', function(event) {
-        event.stopPropagation();
+        new IScroll(this, {
+          mouseWheel: true,
+          bounce    : false
+        });
       });
 
       /* pages */

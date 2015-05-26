@@ -3,3 +3,5 @@ de:
     horizontal_navigation_bar:
       widget_type_name: "Horizontale Navigationsleiste"
       feature_name: "Horizontale Navigationsleiste"
+      widget:
+        credits: "Impressum"

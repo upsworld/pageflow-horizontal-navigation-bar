@@ -20,23 +20,28 @@
   <div class="menu_box">
     <h1>#wowillstduhin</h1>
 
-    <div class="button_area">
-      <a class="navigation_top" href="#">
-        <p>Von vorne starten</p>
-      </a>
-      <div class="share_box">
-        <%= render 'pageflow/entries/share_menu/facebook_link', entry: entry %>
-        <%= render 'pageflow/entries/share_menu/twitter_link', entry: entry %>
-        <%= render 'pageflow/entries/share_menu/google_link', entry: entry %>
-      </div>
-    </div>
+    <div class="menu_box_scroller">
+      <div>
+        <div class="button_area">
+          <a class="navigation_top" href="#">
+            <p>Von vorne starten</p>
+          </a>
+          <div class="share_box">
+            <%= render 'pageflow/entries/share_menu/facebook_link', entry: entry %>
+            <%= render 'pageflow/entries/share_menu/twitter_link', entry: entry %>
+            <%= render 'pageflow/entries/share_menu/google_link', entry: entry %>
+          </div>
+        </div>
 
-    <div class="imprint_box">
-      <% if entry.credits %>
-        <p><%= raw entry.credits %></p>
-      <% end -%>
-      <%= entry_file_rights(entry) %>
-      <%= entry_global_links(entry) %>
+        <div class="imprint_box">
+          <h2><%= t('.credits') %></h2>
+          <% if entry.credits %>
+            <p><%= raw entry.credits %></p>
+          <% end -%>
+          <%= entry_file_rights(entry) %>
+          <%= entry_global_links(entry) %>
+        </div>
+      </div>
     </div>
 
     <div class="volume">
