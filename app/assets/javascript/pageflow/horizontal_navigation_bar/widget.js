@@ -3,48 +3,46 @@
 (function($) {
   $.widget('pageflow.horizontalNavigationBar', {
     _create: function() {
-      var that = this;
-
-      this.element.addClass('js');
+      var element = this.element;
+      element.addClass('js');
 
       /* keyboard / skiplinks */
 
-      that.element.find('a, *[tabindex]').on('blur', function() {
-        that.element.removeClass('focus');
+      element.find('a, *[tabindex]').on('blur', function() {
+        element.removeClass('focus');
       });
 
-      that.element.find('a, *[tabindex]').on('focus', function() {
-        that.element.addClass('focus');
+      element.find('a, *[tabindex]').on('focus', function() {
+        element.addClass('focus');
       });
 
       /* menu */
 
       var menuBox = this.element.find('.menu_box');
 
-      this.element.on('click', '.menu_toggle', function() {
-        menuBox.toggleClass('active');
+      element.on('click', '.menu_toggle', function() {
+        element.toggleClass('menu_box_active');
         return false;
       });
 
-      this.element.find('.navigation_top').on('click', function() {
+      element.find('.navigation_top').on('click', function() {
         if (!$(this).hasClass('deactivated')) {
-          menuBox.removeClass('active');
+          element.removeClass('menu_box_active');
         }
       });
 
-
-      this.element.find('.volume').volumeSlider({
+      element.find('.volume').volumeSlider({
         orientation: 'v'
       });
 
-      this.element.find('.fullscreen').fullscreenButton();
-      this.element.find('.parent_page').parentPageButton();
-      this.element.find('.navigation_top').topButton();
+      element.find('.fullscreen').fullscreenButton();
+      element.find('.parent_page').parentPageButton();
+      element.find('.navigation_top').topButton();
 
       /* close by clicking background */
 
       menuBox.on('click', function(event) {
-        menuBox.removeClass('active');
+        element.removeClass('menu_box_active');
       });
 
       menuBox.find('a, .fullscreen, .volume').on('click', function(event) {
@@ -53,7 +51,7 @@
 
       /* pages */
 
-      that.element.on('click', 'ul a', function(e) {
+      element.on('click', 'ul a', function(e) {
         pageflow.slides.goToById($(this).data('link'));
         e.preventDefault();
       });
@@ -78,7 +76,7 @@
 
         var scroller = new IScroll(this, scrollerOptions);
 
-        $('ul', that.element).pageNavigationList({
+        element.find('ul').pageNavigationList({
           scroller: scroller,
           scrollToActive: true
         });
