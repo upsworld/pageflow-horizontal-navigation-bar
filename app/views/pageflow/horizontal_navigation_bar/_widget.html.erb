@@ -2,10 +2,10 @@
                 class: 'horizontal_navigation_bar',
                 data: {widget: 'horizontal_navigation_bar'}) do %>
 
-  <a href="#" class="menu_toggle button"></a>
+  <a class="menu_toggle button" id="navigation" title="Menü" tabindex="2"></a>
 
   <div class="bar">
-    <a href="#" class="parent_page button" title="Zurück"></a>
+    <a class="parent_page button" title="Zurück" tabindex="2"></a>
 
     <div class="scroller">
       <ul class="pages">
@@ -51,9 +51,9 @@
           <div class="player_volume_handle player_slider_handle volume-handle"></div>
         </div>
       </div>
-      <div class="player_mute volume-mute-button"></div>
+      <div class="player_mute volume-mute-button" tabindex="2"></div>
     </div>
 
-    <div class="fullscreen"></div>
+    <div class="fullscreen" title="Vollbild" tabindex="2"></div>
   </div>
 <% end %>

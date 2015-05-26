@@ -1,6 +1,10 @@
 @import "horizontal_navigation_bar/cross_dependant_styles";
 
 .horizontal_navigation_bar {
+  a:active {
+    outline: none;
+  }
+
   ul {
     margin: 0;
   }

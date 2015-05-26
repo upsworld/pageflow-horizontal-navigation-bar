@@ -3,26 +3,36 @@
 (function($) {
   $.widget('pageflow.horizontalNavigationBar', {
     _create: function() {
+      var menuScroller;
+
       var element = this.element;
       element.addClass('js');
-
-      /* keyboard / skiplinks */
-
-      element.find('a, *[tabindex]').on('blur', function() {
-        element.removeClass('focus');
-      });
-
-      element.find('a, *[tabindex]').on('focus', function() {
-        element.addClass('focus');
-      });
 
       /* menu */
 
       var menuBox = this.element.find('.menu_box');
 
-      element.on('click', '.menu_toggle', function() {
-        element.toggleClass('menu_box_active');
-        return false;
+      function toggle(state) {
+        element.toggleClass('menu_box_active', state);
+
+        $('section.page').toggleClass('hidden_by_overlay', state);
+        $('.slideshow .scroll_indicator').toggleClass('hidden', state);
+
+        if (element.hasClass('menu_box_active')) {
+          menuScroller.refresh();
+          menuScroller.scrollTo(0, 0);
+        }
+      }
+
+      element.on('click', '.menu_toggle', function(event) {
+        toggle();
+        event.preventDefault();
+      });
+
+      $('body').keyup(function(e) {
+        if (e.which === 27 && element.hasClass('menu_box_active')) {
+          toggle(false);
+        }
       });
 
       element.find('.navigation_top').on('click', function() {
@@ -49,7 +59,7 @@
           scrollX    : true
         };
 
-        new IScroll(this, {
+        menuScroller = new IScroll(this, {
           mouseWheel: true,
           bounce    : false
         });
