@@ -8,6 +8,32 @@
       var element = this.element;
       element.addClass('js');
 
+      /* close by clicking background */
+
+      element.on('mousedown touchstart', function(event) {
+        var ignoreSelector = 'a, .volume, [tabindex]';
+        var x = coord(event).pageX;
+        var y = coord(event).pageY;
+
+        if (!$(event.target).is(ignoreSelector) & !$(event.target).parents(ignoreSelector).length) {
+          element.one('mouseup touchend', function(event) {
+            if (Math.abs(coord(event).pageX - x) < 2 &&
+                Math.abs(coord(event).pageY - y) < 2) {
+              toggle();
+            }
+          });
+        }
+
+        function coord(event) {
+          if (event.originalEvent.changedTouches && event.originalEvent.changedTouches[0]) {
+            return event.originalEvent.changedTouches[0];
+          }
+          else {
+            return event;
+          }
+        }
+      });
+
       /* menu */
 
       var menuBox = this.element.find('.menu_box');
