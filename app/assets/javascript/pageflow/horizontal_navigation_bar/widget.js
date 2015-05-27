@@ -63,7 +63,7 @@
 
       element.find('.navigation_top').on('click', function() {
         if (!$(this).hasClass('deactivated')) {
-          element.removeClass('menu_box_active');
+          toggle(false);
         }
       });
 
