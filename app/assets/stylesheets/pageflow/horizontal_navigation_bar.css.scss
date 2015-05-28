@@ -24,4 +24,10 @@
       display: none;
     }
   }
+
+  .has_mobile_platform & {
+    .volume {
+      display: none;
+    }
+  }
 }
