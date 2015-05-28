@@ -77,15 +77,8 @@
       element.find('.navigation_top').topButton();
 
       $('.menu_box_scroller', this.element).each(function () {
-        var scrollerOptions = {
-          mouseWheel: true,
-          bounce    : false,
-          probeType : 2,
-          scrollY   : false,
-          scrollX    : true
-        };
-
         menuScroller = new IScroll(this, {
+          preventDefault: false,
           mouseWheel: true,
           bounce    : false
         });
