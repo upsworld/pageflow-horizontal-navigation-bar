@@ -19,7 +19,7 @@
           element.one('mouseup touchend', function(event) {
             if (Math.abs(coord(event).pageX - x) < 2 &&
                 Math.abs(coord(event).pageY - y) < 2) {
-              toggle();
+              toggle(false);
             }
           });
         }
