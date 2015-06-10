@@ -1,5 +1,7 @@
 <%= content_tag(:li, class: page_navigation_css_class(page)) do %>
   <%= link_to("##{page.perma_id}", data: {link: page.id, chapter_id: page.chapter_id}) do %>
-    <%= image_tag(page.thumbnail_url(:navigation_thumbnail_small), width: 85) %>
+    <% if Pageflow::HorizontalNavigationBar.render_thumbnails %>
+      <%= image_tag(page.thumbnail_url(:navigation_thumbnail_small), width: 85) %>
+    <% end %>
   <% end %>
 <% end %>
