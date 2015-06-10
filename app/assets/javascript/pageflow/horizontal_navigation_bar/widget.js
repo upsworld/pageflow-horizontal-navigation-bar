@@ -55,6 +55,13 @@
         event.preventDefault();
       });
 
+      element.on('click', '.help', function(event) {
+        toggle();
+        event.preventDefault();
+
+        pageflow.multimediaAlert.show();
+      });
+
       $('body').keyup(function(e) {
         if (e.which === 27 && element.hasClass('menu_box_active')) {
           toggle(false);
