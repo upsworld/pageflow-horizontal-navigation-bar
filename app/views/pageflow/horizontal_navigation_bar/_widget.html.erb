@@ -24,13 +24,34 @@
     <div class="menu_box_scroller">
       <div>
         <div class="button_area">
-          <a class="navigation_top" href="#">
+          <!--<a class="navigation_top" href="#">
+            <p>Von vorne starten</p>
+          </a> //-->
+          <a href="http://webdoku.wdr.de/wowillstduhin/" class="reload">
             <p>Von vorne starten</p>
           </a>
           <div class="share_box">
-            <%= render 'pageflow/entries/share_menu/facebook_link', entry: entry %>
+            <!--<%= render 'pageflow/entries/share_menu/facebook_link', entry: entry %>
             <%= render 'pageflow/entries/share_menu/twitter_link', entry: entry %>
-            <%= render 'pageflow/entries/share_menu/google_link', entry: entry %>
+            <%= render 'pageflow/entries/share_menu/google_link', entry: entry %> //-->
+             <a class="share facebook" data-share-page="http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwowillstduhin.wdr.de%2Fwowillstduhin%3Fpage%3DpermaId" href="http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwowillstduhin.wdr.de%2Fwowillstduhin&amp;t=%23wowillstduhin" tabindex="2" target="_blank">
+
+                <span class="hint">Auf Facebook teilen</span>
+                <span class="share_facebook button"></span>
+                <p>facebook</p>
+            </a>
+                        <a class="share twitter" data-share-page="http://twitter.com/home?status=http%3A%2F%2Fwowillstduhin.wdr.de%2Fwowillstduhin%3Fpage%3DpermaId" href="http://twitter.com/home?status=http%3A%2F%2Fwowillstduhin.wdr.de%2Fwowillstduhin" tabindex="2" target="_blank">
+
+                <span class="hint">Auf Twitter teilen</span>
+                <span class="share_twitter button"></span>
+                <p>twitter</p>
+            </a>
+                        <a class="share google" data-share-page="https://plus.google.com/share?url=http%3A%2F%2Fwowillstduhin.wdr.de%2Fwowillstduhin%3Fpage%3DpermaId" href="https://plus.google.com/share?url=http%3A%2F%2Fwowillstduhin.wdr.de%2Fwowillstduhin" tabindex="2" target="_blank">
+
+                <span class="hint">Auf Google+ teilen</span>
+                <span class="share_google button"></span>
+                <p>google</p>
+            </a>
           </div>
         </div>
 
